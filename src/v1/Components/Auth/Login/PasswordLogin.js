@@ -5,9 +5,13 @@ import { findError } from '../../../Utils';
 export default function PasswordLogin({ controls, submitHandler, onChange, errors, showErr, loading }) {
   const { phone_number, password } = controls;
   const [showPasswordInput, setShowPasswordInput] = useState(false);
+  const [loadingButton, setLoadingButton] = useState(false);
+  
   const clickHandler=()=>{
-    setShowPasswordInput(true)
-   submitHandler();
+    setShowPasswordInput(true);
+    setLoadingButton(true);
+    submitHandler();
+    setLoadingButton(false);
    }
   return (
     <div>
@@ -21,7 +25,7 @@ export default function PasswordLogin({ controls, submitHandler, onChange, error
         />
       )}
 
-     <Button loading={loading} text={'Login via Password'} width='80%' margin='0.5rem auto' type={'button'} clicker={clickHandler} />
+     <Button loading={loadingButton} text={'Login via Password'} width='80%' margin='0.5rem auto' type={'button'} clicker={clickHandler} />
     </div>
   );
 }

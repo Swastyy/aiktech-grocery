@@ -16,7 +16,7 @@ export default function Login({ submitHandler, controls, errors, showErr, onChan
         onChange={(e) => onChange(e, 'PHONE')}
         error={findError('phone_number', errors, showErr)}
       />
-      <Button loading={loading} text={'Login via OTP'} width='80%' margin='0.5rem auto' type={'button'} clicker={submitHandler} />
+      <Button loading = {loading} text={'Login via OTP'} width='80%' margin='0.5rem auto' type={'button'} clicker={submitHandler} />
     </div>
   );
 }
